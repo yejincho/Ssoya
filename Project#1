@@ -1,0 +1,149 @@
+Ssoya project #1. 첫번째 메인 화면 만들기!
+
+독학으로 안드로이드를 하고있고 또 조원들도 모두 비슷한 상황이라, 이번주는 세명 모두 각자 첫번째 메인 화면만 대략적으로 
+만들어 보기로 하였다. 우선 화면에 버튼 두개를 띄우고 한 버튼엔 MyCoupon함, 다른 버튼엔 search 이렇게 두개만 만들어 
+각각의 버튼에 이벤트를 주기 까지가 이번주의 목표였다.
+
+//SsoyaMain.java(메인화면)
+
+package com.example.ssoya2;
+
+import android.os.Bundle;
+import android.app.Activity;
+import android.view.View;
+import android.widget.Button;
+import android.content.Intent;
+
+
+public class SsoyaMain extends Activity {
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_ssoya_main);
+        
+
+      //Button btnMy=(Button) findViewById(R.id.button2);
+      Button btnSr=(Button) findViewById(R.id.button1); //우선 search버튼에만 이벤트를 주기위해 선언하였다.
+	    
+	    btnSr.setOnClickListener(new View.OnClickListener(){
+	    	public void onClick(View v){
+	    		Intent i=new Intent(SsoyaMain.this,Search.class);//이벤트 처리, 호출자:메인 자신, search 호출
+	    		startActivity(i);
+	    	}
+	    });
+    }
+}
+
+//activity_ssoya_main.xml(메인의 액티비티)
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context=".SsoyaMain" >
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:background="#FAF4C0"
+        android:textColor="#F29661"
+        android:textSize="20pt"
+        android:layout_marginTop="30pt"
+        android:text="@string/ssoya" />   <!--Strings.xml에 <string name="ssoya">Ssoya_Coupon!</string> 추가-->
+
+    <ImageButton
+        android:id="@+id/button1"         <!--search 버튼-->
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@+id/textView1"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="48dp"
+        android:src="@drawable/search_btn"/>
+
+    <Button
+        android:id="@+id/button2"         <!--MyCoupon 버튼-->
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/button1"
+        android:layout_alignLeft="@+id/textView1"
+        android:layout_alignTop="@+id/button1"
+        android:layout_marginLeft="54dp"
+        android:text="MyMy" />
+
+</RelativeLayout>
+
+//Search.java(search화면)
+package com.example.ssoya2;
+
+import android.app.Activity;
+import android.os.Bundle;
+import android.widget.*;
+import android.text.*;
+import android.content.Intent;
+
+public class Search extends Activity {
+
+  EditText mEdit;
+	TextView mText;
+	Intent intent=getIntent();
+	/** Called when the activity is first created. */
+	@Override
+	public void onCreate(Bundle savedInstanceState) {
+	    super.onCreate(savedInstanceState);
+	    setContentView(R.layout.activiti_search);
+	
+	    mEdit= (EditText) findViewById(R.id.edit);
+	    mText= (TextView) findViewById(R.id.text);
+	    mEdit.addTextChangedListener(mWatcher);
+	    
+	    Intent intent=getIntent();
+	    // TODO Auto-generated method stub
+	}
+	TextWatcher mWatcher=new TextWatcher(){
+		public void afterTextChanged(Editable s){}
+		public void beforeTextChanged(CharSequence s, int start, int count, int after){}
+		public void onTextChanged(CharSequence s, int start, int before, int count){
+			mText.setText("search:"+s);
+		}
+	};
+}
+
+//activiti_search.xml (search의 액티비티)
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <EditText
+        android:id="@+id/edit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Searching by name" >
+
+        <requestFocus />
+    </EditText>
+
+    <TextView
+        android:id="@+id/text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="name:" />
+
+</LinearLayout>
+
+(팀원 여러분? 저 코드에서 뭐가 문젠지 아는분으 고쳐주세용~!)
+---제가 느낀점(공감하기를....)---
+이렇게 search버튼 이벤트까지만 구현하여 보았고, 매우 간단하고 기초적인 화면 구성과 작업이였지만 정상적으로 돌아가지는
+않는다. 뭐가 문제인지는 책과 인터넷을 더 찾아 공부 해봐야할 상황인 것 같다. 공부한지 3일째 쯤에 해도해도 제자리 걸음 
+같고 혼자 하고 틀려도 알려줄 사람이 없으니 힘들었지만 하다보니 좀 재밌기도 하다. 하지만 찾아보고 고치고, 또 찾아보고 
+고쳐도 아예 어플이 중지되어 돌아가지 않는 상황이 몇일째 지속되니 조금 힘들다... 각자 하는 것은 팀원들 모두 안드로이드를
+익히기 위한 과정이고, 조금 더 안드로이드와 이클립스 모두 손에 익으면 이제 셋이 힘을 합쳐 본격적으로 프로젝트를 할 
+예정이다. 
