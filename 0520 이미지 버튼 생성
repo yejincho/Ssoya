@@ -1,0 +1,64 @@
+<!-- 이미지 버튼 생성 해보기-->
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" 
+    android:background="@drawable/main">
+
+   <!--  <Button
+        android:id="@+id/search"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/coupon"
+        android:layout_alignBottom="@+id/coupon"
+        android:layout_toRightOf="@+id/coupon"
+        android:onClick="onClick"
+        android:text="SEARCH" />
+
+    <Button
+        android:id="@+id/coupon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_marginBottom="86dp"
+        android:layout_marginLeft="57dp"
+        android:onClick="onClick"
+        android:text="MY COUPON" />-->
+
+    <ImageButton
+        android:id="@+id/info"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:background="#00000000"
+        android:src="@drawable/btn_info" />
+
+    <ImageButton
+        android:id="@+id/coupon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignTop="@+id/search"
+        android:layout_marginLeft="51dp"
+        android:background="#00000000"
+        android:onClick="onClick"
+        android:src="@drawable/btn_mycoupon" />
+
+    <ImageButton
+        android:id="@+id/search"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/info"
+        android:layout_marginBottom="68dp"
+        android:layout_marginLeft="24dp"
+        android:layout_toRightOf="@+id/coupon"
+        android:background="#00000000"
+        android:onClick="onClick"
+        android:src="@drawable/btn_search" />
+
+</RelativeLayout>
+
+<!-- 이전에 만들었던 버튼을 이미지 버튼으로 만들어 보았다. 레이아웃 부분은 어렵지 않고 또 바로바로 결과물을 볼 수 있어서 
+나름 재미있게 진행 할 수 있었다.-->
