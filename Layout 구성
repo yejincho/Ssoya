@@ -1,0 +1,95 @@
+/*Search 창 복잡한 레이아웃 구성*/
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical"   
+     android:background="@drawable/search_back" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.01" >
+
+        <ImageButton
+            android:id="@+id/btn_coupontap"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="28dp"
+            android:layout_marginTop="8dp"
+            android:background="#00000000"
+            android:onClick="onClick"
+            android:src="@drawable/btn_coupontap_in_search"
+ />
+
+        <ImageButton
+            android:id="@+id/searchtap"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="68dp"
+            android:layout_marginTop="8dp"
+            android:background="#00000000"
+            android:src="@drawable/btn_searchtap" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.46"
+        android:orientation="vertical" >
+
+        <ImageView
+            android:id="@+id/line1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#00000000"
+            android:src="@drawable/line" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+
+            <ImageButton
+                android:id="@+id/grazie"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="#00000000"
+                android:src="@drawable/grazie" />
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" >
+
+                <ImageButton
+                    android:id="@+id/unshine_star"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:background="#00000000"
+                    android:src="@drawable/btn_unshine_star" />
+
+                <ImageButton
+                    android:id="@+id/shine_star"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:background="#00000000"
+                    android:src="@drawable/btn_shine_star" />
+
+            </FrameLayout>
+
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/line2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/line" />
+    </LinearLayout>
+
+</LinearLayout>
+
+/*레이아웃을 구성해보았다. 많은 레이아웃이 사용되서 되게 복잡하고 컴포넌트들이 내 마음대로 움직이지 않아서 답답하다
+절대적인 좌표로 가지고 구성하면 편할 것 같은데 그러면 단말기 디스플레이 크기가 달라지면 다른 모양이 나온다고 한다.
+매우 어렵고 머리를 많이 써야 하는 작업이었다.*/
