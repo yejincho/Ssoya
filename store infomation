@@ -1,0 +1,118 @@
+쿠폰에 등록되어있는 스토어들의 정보창을 search창에서 누르면 팝업창으로 뜨게끔 구현하였습니다.
+//Search.java
+package com.example.ssoya4;
+
+import android.app.Activity;
+import android.app.AlertDialog;
+import android.app.Dialog;
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.ImageButton;
+import android.widget.ImageView;
+
+public class Search extends Activity {
+
+  protected static final String LAYOUT_INFLATER = null;
+	ImageButton btn_coupontap;
+	ImageButton btn_grazie;
+	/** Called when the activity is first created. */
+	@Override
+	public void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_search);
+		// TODO Auto-generated method stub
+
+		btn_coupontap = (ImageButton) findViewById(R.id.searchtap);
+		btn_grazie=(ImageButton)findViewById(R.id.grazie);
+		
+		btn_grazie.setOnClickListener(new View.OnClickListener(){
+			
+	    	public void onClick(View v){
+	    		
+	    		//AlertDialog total;
+	    		//AlertDialog.Builder reader;
+	    		
+	    		//Context mContext=getApplicationContext();
+	    		//LayoutInflater inf=(LayoutInflater)mContext.getSystemService(LAYOUT_INFLATER);				
+				//View info_grazie=inf.inflate(R.layout.dialog_layout, null);
+				//ImageView img=(ImageView)info_grazie.findViewById(R.id.info1);
+				//img.setImageResource(R.drawable.info_grazie);
+				//reader=new AlertDialog.Builder(mContext);
+				
+				
+				//reader.setView(info_grazie);
+	    		//total=reader.create();
+				//total.show();
+				/*
+				AlertDialog.Builder dlg=new AlertDialog.Builder(Search.this);
+				
+				dlg.setTitle("INFORMATION");
+				dlg.setMessage("Grazie");
+				dlg.setPositiveButton("닫기",null);
+				dlg.setNegativeButton("마이쿠폰 등록",null);				
+				dlg.setIcon(R.drawable.icon_grazie);
+				dlg.show();
+				
+				*/
+			//쿠폰 정보창 팝업	
+	    		AlertDialog.Builder dlg=new AlertDialog.Builder(Search.this);
+				
+				dlg.setTitle("INFORMATION");
+				dlg.setMessage("Grazie");
+				dlg.setPositiveButton("닫기",null);
+				dlg.setNegativeButton("마이쿠폰 등록",null);				
+				dlg.setIcon(R.drawable.icon_grazie);
+				dlg.show();
+				
+	    		Dialog dialog=new Dialog(Search.this);
+	    		dialog.setOwnerActivity(Search.this);
+	    		dialog.setContentView(R.layout.dialog_layout);
+	    		ImageView iv=(ImageView)dialog.findViewById(R.id.info1);
+	    		dialog.setTitle("INFORMATION");	    		
+	    		iv.setImageResource(R.drawable.infograzie);
+	    		iv.setOnClickListener(this);
+	    		dialog.show();
+	    		
+	    		
+	    	}
+	    });
+	}
+
+	public void onClick(View v) {
+		/*
+		if (v.getId() == R.id.searchtap) {
+			Intent intent = new Intent(Search.this, MainActivity.class);
+			intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP
+					| Intent.FLAG_ACTIVITY_SINGLE_TOP);
+			startActivity(intent);
+		}
+		*/
+		if(v.getId()==R.id.btn_coupontap){
+			Intent intent = new Intent(Search.this, Mycoupon.class);
+			intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP
+					| Intent.FLAG_ACTIVITY_SINGLE_TOP);
+			startActivity(intent);
+		}
+	}
+}
+
+
+<!--dialog_layout-->
+
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    
+    <ImageView
+        android:id="@+id/info1"
+        android:layout_width="300dip"
+        android:layout_height="500dip"
+        android:gravity="center"
+        android:src="@drawable/infograzie"<!-- 정보창-->
+         />
+
+</LinearLayout>
