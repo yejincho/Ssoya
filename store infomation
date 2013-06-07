@@ -112,7 +112,7 @@ public class Search extends Activity {
         android:layout_width="300dip"
         android:layout_height="500dip"
         android:gravity="center"
-        android:src="@drawable/infograzie"<!-- 정보창-->
+        android:src="@drawable/infograzie"<!-- 정보창 이미지-->
          />
 
 </LinearLayout>
