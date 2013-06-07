@@ -1,0 +1,59 @@
+package com.example.third_practice;
+
+import android.app.Activity;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.ImageButton;
+import android.widget.TextView;
+
+public class activity_grazie_coupontap extends Activity {
+
+  ImageButton graziecp1;
+	ImageButton graziecp2;
+	ImageButton graziecp3;
+	ImageButton graziecp4;
+	ImageButton graziecp5;
+	ImageButton graziecp6;
+	ImageButton graziecp7;
+	ImageButton graziecp8;
+	ImageButton graziecp9;
+	int a=1;
+	
+	TextView tx;
+	
+	/** Called when the activity is first created. */
+	@Override
+	public void onCreate(Bundle savedInstanceState) {
+	    super.onCreate(savedInstanceState);
+	    setContentView(R.layout.activity_grazie_coupontap);
+	    // TODO Auto-generated method stub
+	    
+	    graziecp1 = (ImageButton)findViewById(R.id.graziecp1);
+	    
+	    tx = (TextView)findViewById(R.id.text);
+	    
+	    
+	}
+	
+	public void onClick(View v){
+		if(v.getId()==R.id.graziecp1){
+			if(a%2==1){
+				graziecp1.setVisibility(View.INVISIBLE);
+				a++;
+				tx.setText("a 홀수");
+			}
+			if(a%2==0){
+				graziecp1.setVisibility(View.VISIBLE);
+				a++;
+				tx.setText("a 짝수");
+			}
+		}
+		
+		
+	}
+
+}
+
+
+/* 클릭으로 보이고 안보이고를 번갈아 보여주려 했는데 처음 보이는 상태에서 안보이게는 할 수 있었지만 
+안보이는 상태에서 보이게 하는 것은 왜인지 잘되지 않았다. 다른 방법으로 시도해보아야 겠다.*/
